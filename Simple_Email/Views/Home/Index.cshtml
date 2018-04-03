@@ -1,0 +1,32 @@
+﻿@using Simple_Email.Models
+@model DetailEmail
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm("SendEmail", "Home", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.ValidationMessageFor(x => x.EmailTo)
+    @Html.LabelFor(x => x.EmailTo)
+    @Html.TextBoxFor(x => x.EmailTo, new { @class = "form-control" })
+
+    @Html.ValidationMessageFor(x => x.Subject)
+    @Html.LabelFor(x => x.Subject)
+    @Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+
+    @Html.ValidationMessageFor(x => x.Content)
+    @Html.LabelFor(x => x.Content)
+    @Html.TextBoxFor(x => x.Content,"", new { @class = "form-control" })
+
+    @Html.ValidationMessageFor(x => x.EmailFrom)
+    @Html.LabelFor(x => x.EmailFrom)
+    @Html.TextBoxFor(x => x.EmailFrom, new { @class = "form-control" })
+
+    @Html.ValidationMessageFor(x => x.PasswordEmail)
+    @Html.LabelFor(x => x.PasswordEmail)
+    @Html.TextBoxFor(x => x.PasswordEmail, new { @class = "form-control" })
+
+    <button type="submit" class="btn btn-success">Send</button>
+
+}
